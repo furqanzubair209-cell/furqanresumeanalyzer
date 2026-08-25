@@ -1,5 +1,6 @@
 Resume AI
-
+Live Demo
+https://furqanresumeanalyzer.netlify.app/
 AI-powered resume analyzer that helps you improve your resume for ATS compatibility, content quality, skill coverage, and job matching.
 
 Built with React, Vite, and Tailwind CSS, Resume AI provides AI-powered analysis and rewriting when an OpenAI API key is configured, while also supporting a deterministic local analyzer when no AI key is available.
