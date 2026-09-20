@@ -57,7 +57,7 @@ Installation
 
 Clone the repository:
 
-git clone https://github.com/YOUR_USERNAME/resume-ai.git
+git clone https://github.com/furqanzubair209-cell/resume-ai.git
 
 Move into the project directory:
 
