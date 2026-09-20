@@ -1,215 +1,198 @@
-Resume AI
-Live Demo
-https://furqanresumeanalyzer.netlify.app/
-AI-powered resume analyzer that helps you improve your resume for ATS compatibility, content quality, skill coverage, and job matching.
+<div align="center">
 
-Built with React, Vite, and Tailwind CSS, Resume AI provides AI-powered analysis and rewriting when an OpenAI API key is configured, while also supporting a deterministic local analyzer when no AI key is available.
+# 📄 Resume AI
 
-Features
+**An AI-powered resume analyzer that scores your resume for ATS compatibility, content quality and skill coverage, matches it against job descriptions, and suggests stronger bullet points.**
 
-- 📄 Resume Upload — Upload and analyze your resume.
-- 🤖 AI Resume Analysis — Get intelligent feedback on resume quality and content.
-- 📊 ATS Score — Evaluate your resume for ATS compatibility.
-- 🧠 Skill Coverage — Identify skills present in your resume and areas that may need improvement.
-- 💼 Job Description Matching — Compare your resume against a job description.
-- ✍️ AI Rewrite Suggestions — Improve resume content with AI-generated recommendations.
-- 📑 PDF Export — Export your analyzed resume/report as a PDF.
-- 🔄 JSON Export — Export analysis results as JSON.
-- ⚡ Local Fallback Analyzer — Analyze resumes locally when an OpenAI API key is not configured.
-- 🌐 Netlify Functions — Handle AI requests through server-side Netlify Functions.
+<br>
 
-How It Works
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Visit-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)](https://furqanresumeanalyzer.netlify.app/)
 
-Resume AI supports two analysis modes.
+<br>
 
-AI Mode
+![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![OpenAI](https://img.shields.io/badge/OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white)
+![Netlify](https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)
 
-When an "OPENAI_API_KEY" is configured, AI-powered features use OpenAI through a Netlify serverless function.
+</div>
 
-The OpenAI API key is kept on the server side and is not exposed to the browser.
+---
 
-Local Fallback Mode
+## 📑 Table of Contents
 
-When an OpenAI API key is not configured, Resume AI can use its deterministic local analyzer for core resume analysis.
+- [Overview](#-overview)
+- [Features](#-features)
+- [How It Works](#-how-it-works)
+- [Tech Stack](#-tech-stack)
+- [Getting Started](#-getting-started)
+- [OpenAI Configuration](#-openai-configuration)
+- [Deployment](#-deployment)
+- [Security](#-security)
+- [Author](#-author)
 
-This allows the application to provide useful resume analysis without requiring an external AI service.
+---
 
-Tech Stack
+## 🔭 Overview
 
-- React — Frontend UI
-- Vite — Development server and build tool
-- Tailwind CSS — Styling
-- Netlify Functions — Server-side functionality
-- OpenAI API — AI-powered analysis and rewriting
-- JavaScript — Application logic
+Resume AI helps job seekers improve their resumes for ATS compatibility, content quality, skill coverage and job matching.
 
-Requirements
+It runs in two modes:
 
-Before running the project locally, make sure you have:
+- **AI mode:** when an OpenAI API key is configured, the app provides AI-powered analysis and rewriting through a server-side Netlify Function.
+- **Local mode:** when no key is configured, a deterministic local analyzer still provides core resume analysis, so the app stays useful without any external AI service.
 
-- Node.js
-- npm
+🔗 **Live demo:** [furqanresumeanalyzer.netlify.app](https://furqanresumeanalyzer.netlify.app/)
+
+---
+
+## ✨ Features
+
+| Feature | Details |
+| ------- | ------- |
+| 📄 **Resume upload** | Upload a resume (PDF/DOCX) and analyze it |
+| 📊 **ATS score** | Evaluate the resume for ATS compatibility |
+| 🧠 **Skill coverage** | Identify the skills present and the areas that need work |
+| 💼 **Job description matching** | Compare the resume against a target job description |
+| 🤖 **AI analysis** | Intelligent feedback on resume quality and content *(AI mode)* |
+| ✍️ **AI rewrite suggestions** | Stronger bullet-point recommendations *(AI mode)* |
+| ⚡ **Local fallback analyzer** | Deterministic analysis when no OpenAI key is configured |
+| 📑 **PDF export** | Export the analyzed report as a PDF |
+| 🔄 **JSON export** | Export the analysis results as JSON |
+| 🌐 **Netlify Functions** | AI requests are handled server-side |
+
+---
+
+## ⚙️ How It Works
+
+```mermaid
+flowchart TD
+    A["📄 Upload resume"] --> B{"OpenAI key<br/>configured?"}
+    B -- Yes --> C["🤖 AI mode<br/>Netlify Function → OpenAI API"]
+    B -- No --> D["⚡ Local mode<br/>deterministic analyzer"]
+    C --> E["📊 Results<br/>ATS score · skills · job match · rewrites"]
+    D --> E
+    E --> F["📑 Export as PDF or JSON"]
+```
+
+The OpenAI API key stays on the server and is never exposed to the browser.
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer | Technology |
+| ----- | ---------- |
+| **Frontend** | React, JavaScript |
+| **Build tool** | Vite |
+| **Styling** | Tailwind CSS |
+| **Serverless** | Netlify Functions |
+| **AI** | OpenAI API (optional) |
+| **Hosting** | Netlify |
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js and npm
 - Git
+- An OpenAI API key *(optional; without one the app uses the local analyzer)*
 
-An OpenAI API key is optional if you want to use the local fallback analyzer.
+### Installation
 
-Installation
-
-Clone the repository:
-
-git clone https://github.com/furqanzubair209-cell/resume-ai.git
-
-Move into the project directory:
-
-cd resume-ai
-
-Install dependencies:
-
+```bash
+git clone https://github.com/furqanzubair209-cell/furqanresumeanalyzer.git
+cd furqanresumeanalyzer
 npm install
+```
 
-Run Locally
+### Run locally
 
-Start the development server:
-
+```bash
 npm run dev
+```
 
-Vite will provide a local URL, usually:
+Vite prints a local URL, usually `http://localhost:5173/`.
 
-http://localhost:5173/
+### Production build
 
-Open the URL in your browser.
-
-Production Build
-
-Create a production build with:
-
+```bash
 npm run build
-
-To preview the production build locally:
-
 npm run preview
+```
 
-OpenAI API Configuration
+---
 
-OpenAI integration is optional.
+## 🔑 OpenAI Configuration
 
-For AI-powered features, configure:
+OpenAI integration is optional. To enable AI mode, set this environment variable:
 
+```env
 OPENAI_API_KEY=your_openai_api_key
+```
 
-The application expects the variable to be named exactly:
+> [!IMPORTANT]
+> The variable must be named exactly `OPENAI_API_KEY`. Do **not** use `VITE_OPENAI_API_KEY`, because `VITE_` variables are exposed to the browser.
 
-OPENAI_API_KEY
+Configure it server-side through your Netlify environment variables (see below).
 
-Do not use:
+---
 
-VITE_OPENAI_API_KEY
+## 🌐 Deployment
 
-The API key should be configured server-side through Netlify environment variables.
+Resume AI is configured for Netlify. The existing `netlify.toml` handles the build and Functions setup.
 
-Deploy to Netlify
+1. Push the project to GitHub.
+2. In Netlify, choose **Add new project → Import an existing project → GitHub** and select this repository.
+3. Use these build settings:
 
-Resume AI is configured for deployment on Netlify.
+   | Setting | Value |
+   | ------- | ----- |
+   | Build command | `npm run build` |
+   | Publish directory | `dist` |
 
-1. Push the Project to GitHub
+4. Go to **Project configuration → Environment variables** and add `OPENAI_API_KEY` with your key.
+5. Trigger a new deployment. Netlify will provide a public URL.
 
-Create a GitHub repository named:
+Once GitHub and Netlify are connected, pushing to the configured branch triggers a new deployment automatically.
 
-resume-ai
+---
 
-Push the project files to the repository.
+## 🔒 Security
 
-Do not commit:
+Keep your OpenAI API key server-side at all times.
 
-- "node_modules/"
-- ".env"
-- OpenAI API keys
+- Never commit API keys, `.env` files or `node_modules/` to GitHub.
+- Never put API keys in React components.
+- Never expose keys through frontend environment variables.
+- Never share keys in screenshots or public repositories.
 
-2. Import the Repository into Netlify
+If a key is ever exposed, revoke it and create a new one.
 
-In Netlify, select:
+---
 
-Add new project → Import an existing project → GitHub
+## 👨‍💻 Author
 
-Select the "resume-ai" repository.
+**Muhammad Furqan** — AI/ML Developer & Full-Stack Engineer
 
-3. Build Settings
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/furqanzubair209-cell)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/muhammad-furqan-228807304/)
+[![Portfolio](https://img.shields.io/badge/Portfolio-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)](https://furqannewportfolio.netlify.app/)
 
-Use:
+---
 
-Build command: npm run build
-Publish directory: dist
-
-The existing "netlify.toml" handles the Netlify configuration and Functions setup.
-
-4. Configure the OpenAI API Key
-
-In your Netlify project, go to:
-
-Project configuration → Environment variables
-
-Add:
-
-Key: OPENAI_API_KEY
-Value: YOUR_OPENAI_API_KEY
-
-Do not commit the API key to GitHub.
-
-5. Deploy
-
-Trigger a new deployment after configuring the environment variable.
-
-Once deployment is complete, Netlify will provide a public URL for your application.
-
-Security
-
-The OpenAI API key should always remain server-side.
-
-Never:
-
-- Commit API keys to GitHub.
-- Put API keys directly in React components.
-- Expose API keys through frontend environment variables.
-- Share API keys in screenshots or public repositories.
-
-If an API key is accidentally exposed, revoke it and create a new one.
-
-GitHub Repository Information
-
-Repository name: "resume-ai"
-
-Display name: "Resume AI"
-
-Description:
-
-«AI-powered resume analyzer that scores your resume for ATS compatibility, content quality, and skill coverage — with job-description matching, rewrite suggestions, and PDF/JSON export. Built with React, Vite, and Tailwind CSS.»
-
-Suggested GitHub Topics
-
-"react" "vite" "tailwindcss" "resume" "ats" "openai" "netlify" "job-search"
-
-Development Workflow
-
-A typical workflow is:
-
-Edit code
-   ↓
-npm run dev
-   ↓
-Test locally
-   ↓
-git add .
-   ↓
-git commit
-   ↓
-git push
-   ↓
-Netlify deploys
-
-Once GitHub and Netlify are connected, pushing changes to the configured branch can automatically trigger a new deployment.
-
-License
+## 📄 License
 
 This project is provided for educational and development purposes.
 
-Add an appropriate open-source license if you intend to distribute the project publicly.
+<div align="center">
+
+⭐ If you find this project useful, consider giving the repository a star.
+
+</div>
+
+
